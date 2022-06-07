@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Examen Primer Parcial</title>
+</head>
+<body>
+  <div class="ubicacion">
+    <h1>REGISTRO VEHICULAR</h1>
+  <!--FORMULARIO-->
+    <form method="post" action="{{url_for('agregar')}}">
+        <div class="form-group">
+          <label for="exampleInputEmail1">Ingrese número de matrícula</label>
+          <input type="text" class="form-control" name="matricula" aria-describedby="emailHelp" placeholder="Ingrese matrícula">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Fecha</label>
+          <input type="date" class="form-control" name="fecha" placeholder="Password">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Hora</label>
+          <input type="time" class="form-control" name="hora" placeholder="Password">
+        </div>
+        <button type="submit" class="btn btn-primary btn_registrar" >Registrar</button>
+      </form>
+
+    <!--TABLA DE VISULIZACION-->
+    <!--TABLA VISUALIZAR-->
+    <div class="sitio">
+      <div class="contenedor">
+          <h1>PICO Y PLACA</h1>
+          <table class="table">
+              <thead>
+                  <tr>
+                      <th>Nro. Llamada</th>
+                      <th>Placa Vehículo</th>
+                      <th>Fecha</th>
+                      <th>Hora</th>
+                      <th>Predicción</th>
+
+                  </tr>
+              </thead>
+              <tbody>
+                {% for pico_placa in lista_registro %}
+              <tr>
+                  <td></td>
+                  <td>{{pico_placa.matricula}}</td>
+                  <td>{{pico_placa.fecha}}</td>
+                  <td>{{pico_placa.hora}}</td>
+                  <td></td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+      </div>
+      
+</body>
+<style>
+  .ubicacion{ 
+    padding: 70px; /*Ubicacion del contenido*/
+  }
+</style>
+</html>
